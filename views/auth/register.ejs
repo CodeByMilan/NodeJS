@@ -12,18 +12,18 @@
   <!-- Registration Form -->
   <div class="register-container">
     <h2>Register</h2>
-    <form>
+    <form action="/register" method="post">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username">
+        <input type="text" name="username" placeholder="Enter your username">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email">
+        <input type="email" name="email" placeholder="Enter your email">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password">
+        <input type="password"name="password" id="password" placeholder="Enter your password">
       </div>
       <button type="submit" class="register-btn">Register</button>
     </form>
