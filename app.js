@@ -12,7 +12,6 @@ app.get('/register',(req,res)=>{
     res.render('auth/register')
 })
 
-
 app.get('/login',(req,res)=>{
     res.render('auth/login')
     })
