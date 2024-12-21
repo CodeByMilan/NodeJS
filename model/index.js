@@ -5,7 +5,6 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.DIALECT,
-  operatorsAliases: false,
   port: 3306,
   pool: {
     max: dbConfig.pool.max,
@@ -34,7 +33,7 @@ db.users = require("./userModel.js")(sequelize, DataTypes);
 db.blogs =require("./blogModel.js")(sequelize,DataTypes)
 
 //migration
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: false}).then(() => {
   console.log("re-synced database successfully");
 });
 module.exports = db;

@@ -4,6 +4,7 @@ const app = express();
 const PORT = 3000;
 
 require("./model/index");
+const bcrypt=require('bcrypt')
 //to render frontend ejs template engine is used
 app.set("view engine", "ejs");
 // by default nodejs doesnot understand incomming data so to understand the data coming from the frontendlike ejs template
@@ -28,7 +29,7 @@ app.post("/register", async (req, res) => {
   await users.create({
     username,
     email,
-    password,
+    password: bcrypt.hashSync(password,10),
   });
   res.send("registerd successfully");
 });
