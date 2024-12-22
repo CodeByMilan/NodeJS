@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="register.css">
+
+</head>
+<body>
+    <%- include("../components/navbar")%>
+  <!-- Registration Form -->
+  <div class="register-container">
+    <h2>Ask Questions</h2>
+    <form action="/askQuestion" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="title">title</label>
+        <input type="text" name="title" placeholder="Enter your question title">
+      </div>
+      <div class="form-group">
+        <label for="image">image</label>
+        <input type="file" name="image">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea  cols="45" rows="10"  name="description"  placeholder="Enter description"></textarea>
+      </div>
+      <button type="submit" class="register-btn">Ask Question</button>
+    </form>
+  </div>
+  <%- include("../components/footer")%>
+</body>
+</html>
