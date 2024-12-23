@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="register.css">
+  
+</head>
+<body>
+    <%- include("../components/navbar")%>
+
+  <!-- Registration Form -->
+  <div class="register-container">
+    <h2>Verify Otp</h2>
+    <form action="/verifyOtp" method="post">
+      <div class="form-group">
+        <input type="text"name="otp" id="otp" placeholder="Enter OTP">
+      </div>
+      <button type="submit" class="register-btn">verify</button>
+    </form>
+  </div>
+  <%- include("../components/footer")%>
+</body>
+</html>

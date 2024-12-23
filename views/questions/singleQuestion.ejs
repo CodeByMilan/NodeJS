@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum Questions</title>
+  <link rel="stylesheet" href="/register.css">
+  <link rel="stylesheet" href="/home.css">
+</head>
+
+<body>
+  <%- include("../components/navbar")%>
+    <div class="container">
+      <ul class="question-list">
+        <!-- Question  -->
+        <li class="question-item" onclick="window.location.href='/answer/<%- data.id %>'">
+          <div class="question-header">
+            <%- data.title %>
+          </div>
+          <image src="http://localhost:3000/<%- data.image %>" alt="Question image" class="question-image"></image>
+          <div class="question-content">
+            <%- data.description %>
+          </div>
+          <span>Author : <%- data.user.username %></span><br><br>
+          <span>Created At : <%- new Date( data.createdAt).toLocaleDateString() %></span>
+        </li>
+        <div class="answer">
+          <% answers.forEach((answer)=>{%>
+          <div class="card">
+              <p><%- answer.answerText %></p>
+              <span>Author : <%- answer.user.username %></span>
+              <span>Posted on : <%- new Date(answer.createdAt).toLocaleDateString() %></span >
+                 <hr>
+          </div>
+          <% }); %>
+        </div>
+        <hr>
+        <div class="question-item answer-section">
+          <form action="/answer/<%-data.id%>" method="post">
+            <textarea name="answer" id="answer" cols="100" rows="10" placeholder="Enter your answer here..."></textarea>
+
+            <div class="button-container">
+              <button class="btn ">Answer This Question</button>
+            </div>
+        </div>
+        </form>
+
+      </ul>
+    </div>
+</body>
+
+</html>

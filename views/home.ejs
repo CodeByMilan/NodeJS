@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="register.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum Questions</title>
+  <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <%- include("components/navbar")%> 
-    <h1>
-       this is home page 
-    </h1>
+    <%- include("components/navbar")%>
+  <div class="container">
+    <ul class="question-list">
+      <!-- Question  -->
+    <% data.forEach((item)=>{ %>
+        <li class="question-item" onclick="window.location.href='/question/<%- item.id %>'">
+            <div class="question-header">
+              <%- item.title %>
+            </div>
+            <div class="question-content">
+                <%- item.description %>
+            </div>
+            <span>Author : <%- item.user.username %></span>
+            <div class="button-container">
+                
+              <a href='/question/<%- item.id %>' class="btn">see more</a>
+            </div>
+          </li>
+    <% })%>
+    </ul>
+  </div>
 </body>
 </html>
